@@ -1,0 +1,42 @@
+{
+    "playlists":
+    [
+        {
+            "id": "1",
+            "title": "Trap"
+        },
+        {
+            "id": "2",
+            "title": "Rap"
+        },
+        {
+            "id": "3",
+            "title": "Funk"
+        },
+        {
+            "id": "4",
+            "title": "Sertanejo"
+        },
+        {
+            "id": "5",
+            "title": "Eletrônica"
+        }
+    ],
+    "musics": 
+    [
+        {
+            "id": "1",
+            "playlistId": "1",
+            "title": "Quadro",
+            "authors": 
+            [
+                {
+                    "name": "Sidoka"
+                },
+                {
+                    "name": "ouhboy"
+                }
+            ]
+        }
+    ]
+}

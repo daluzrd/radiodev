@@ -1,6 +1,11 @@
-import { MdPlayCircleFilled } from "react-icons/md"
+import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { AudioContext } from '../../contexts/audio'
+import { MdPauseCircleFilled, MdPlayCircleFilled } from "react-icons/md"
 import StationIcon from '../../assets/img/stationIcon.jpeg'
+import { playlist } from "../../models/playlist"
+import { getPlaylists } from "../../services/jsonServer"
 
 const Main = styled.main`
 width: calc(100% - 18rem);
@@ -44,75 +49,65 @@ background: var(--dark-gray);
 `
 
 const PlayButton = styled(MdPlayCircleFilled)`
-color: var(--purple);
+  color: var(--purple);
 
-height: 3rem;
-width: 3rem;
+  height: 3rem;
+  width: 3rem;
 
-cursor: pointer;
-transition: 200ms;
+  cursor: pointer;
+  transition: 200ms;
 
-:hover {
-  transform: scale(1.2);
-}
+  :hover {
+    transform: scale(1.2);
+  }
 
-align-self: center;
+  align-self: center;
+`
+
+const PauseButton = styled(MdPauseCircleFilled)`
+  color: var(--purple);
+
+  height: 3rem;
+  width: 3rem;
+
+  cursor: pointer;
+  transition: 200ms;
+
+  :hover {
+    transform: scale(1.2);
+  }
+
+  align-self: center;
 `
 
 export default () => {
+  const [playlists, setPlaylists] = useState<playlist[]>([])
+  const { isPlaying, play } = useContext(AudioContext)
+
+  useEffect(() => {
+    const effect = async () => {
+      setPlaylists(await getPlaylists())
+    }
+    effect()
+    console.log(playlists)
+  }, [])
+
   return (
+
     <Main>
       <StationList>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 1</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 2</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 3</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 4</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 5</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 6</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 7</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 8</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 9</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 10</a>
-          <PlayButton />
-        </StationItem>
+        {playlists.length ? playlists.map(playlist => {
+          return (
+            <StationItem key={`${playlist.title}${playlist.id}`}>
+              <img src={StationIcon} />
+              <Link to='#'>{ playlist.title }</Link>
+              { isPlaying?
+                <PauseButton onClick={play} /> : 
+                <PlayButton onClick={play} />
+              }
+            </StationItem>
+          )
+        }): <></>}
       </StationList>        
     </Main>
   )
