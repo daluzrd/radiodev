@@ -28,6 +28,7 @@
             "id": "1",
             "playlistId": "1",
             "title": "Quadro",
+            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/815828098",
             "authors": 
             [
                 {
@@ -35,6 +36,57 @@
                 },
                 {
                     "name": "ouhboy"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "playlistId": "2",
+            "title": "Olho de tigre",
+            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336631017",
+            "authors": 
+            [
+                {
+                    "name": "Djonga"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "playlistId": "3",
+            "title": "Você não nasceu pra namorar",
+            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/993120556",
+            "authors": 
+            [
+                {
+                    "name": "Mc Zaquin"
+                },
+                {
+                    "name": "Mc Rick"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "playlistId": "4",
+            "title": "Batom de cereja",
+            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/959678071",
+            "authors": 
+            [
+                {
+                    "name": "Israel & Rodolfo"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "playlistId": "5",
+            "title": "Call me a spaceman",
+            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/126827254",
+            "authors": 
+            [
+                {
+                    "name": "Israel & Rodolfo"
                 }
             ]
         }

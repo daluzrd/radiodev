@@ -8,10 +8,17 @@ const getPlaylists = () => {
 }
 
 const getMusics = async () => {
-    const response = await api.get('music')
+    const response = await api.get('musics')
         .then(response => response.data)
 
     return response
 }
 
-export { getPlaylists, getMusics }
+const getMusicsByPlaylistId = async (playlistId: number) => {
+    const response = await api.get(`musics?playlistId=${playlistId}`)
+        .then(response => response.data)
+
+    return response
+}
+
+export { getPlaylists, getMusics, getMusicsByPlaylistId }

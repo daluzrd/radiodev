@@ -7,4 +7,6 @@ export type music = {
     playlistId: number
     title: string
     authors: author[]
+    soundcloudUrl: string
+    duration: number
 }

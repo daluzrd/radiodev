@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import { MdFavorite } from 'react-icons/md'
 import styled from 'styled-components'
+import { AudioContext } from '../../contexts/audio'
 import StationIcon from '../../assets/img/stationIcon.jpeg'
 
 const Player = styled.footer`
@@ -68,7 +70,13 @@ const LikeSection = styled.section`
   height: 100%;
 `
 
+const Iframe = styled.iframe`
+  display: none;
+`
+
 export default () => {
+  const { actualMusic, actualPlaylist } = useContext(AudioContext)
+
   return (    
     <Player>
     <StationSection>
@@ -85,6 +93,12 @@ export default () => {
     <LikeSection>
       <LikeIcon />
     </LikeSection>
+    <Iframe 
+      scrolling="no" 
+      frameBorder="no" 
+      allow="autoplay" 
+      src={`${actualMusic.soundcloudUrl}&color=%23ff5500&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false`} 
+    />
   </Player>
   )
 }

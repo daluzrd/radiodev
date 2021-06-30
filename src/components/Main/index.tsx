@@ -82,7 +82,7 @@ const PauseButton = styled(MdPauseCircleFilled)`
 
 export default () => {
   const [playlists, setPlaylists] = useState<playlist[]>([])
-  const { isPlaying, play } = useContext(AudioContext)
+  const { isPlaying, play, listenPlaylist } = useContext(AudioContext)
 
   useEffect(() => {
     const effect = async () => {
@@ -102,8 +102,12 @@ export default () => {
               <img src={StationIcon} />
               <Link to='#'>{ playlist.title }</Link>
               { isPlaying?
-                <PauseButton onClick={play} /> : 
-                <PlayButton onClick={play} />
+                <PauseButton 
+                  onClick={() => { listenPlaylist(playlist) }} 
+                /> : 
+                <PlayButton 
+                  onClick={() => { listenPlaylist(playlist) }} 
+                />
               }
             </StationItem>
           )

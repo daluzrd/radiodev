@@ -4,6 +4,7 @@ import {
 	Route,
 	Switch,
 } from 'react-router-dom'
+import Player from './components/Player'
 import { AudioContextProvider } from './contexts/audio'
 import { Home } from './pages/Home'
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route exact path='/Main' component={Home} />
         </Switch>
       </Router>
+			<Player />
     </AudioContextProvider>
 	)
 }
