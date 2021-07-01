@@ -1,94 +1,135 @@
 {
-    "playlists":
-    [
+  "playlists": [
+    {
+      "id": "1",
+      "title": "Trap",
+      "thumbnail": "/stationsImg/trap.png",
+      "playedTimes": 29
+    },
+    {
+      "id": "2",
+      "title": "Rap",
+      "thumbnail": "/stationsImg/rap.png",
+      "playedTimes": 16
+    },
+    {
+      "id": "3",
+      "title": "Funk",
+      "thumbnail": "/stationsImg/funk.png",
+      "playedTimes": 27
+    },
+    {
+      "id": "4",
+      "title": "Sertanejo",
+      "thumbnail": "/stationsImg/sertanejo.png",
+      "playedTimes": 2
+    },
+    {
+      "id": "5",
+      "title": "Eletrônica",
+      "thumbnail": "/stationsImg/eletronica.png",
+      "playedTimes": 8
+    }
+  ],
+  "musics": [
+    {
+      "id": "1",
+      "playlistId": "1",
+      "title": "Quadro",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/815828098",
+      "duration": 170,
+      "authors": [
         {
-            "id": "1",
-            "title": "Trap"
+          "name": "Sidoka"
         },
         {
-            "id": "2",
-            "title": "Rap"
-        },
-        {
-            "id": "3",
-            "title": "Funk"
-        },
-        {
-            "id": "4",
-            "title": "Sertanejo"
-        },
-        {
-            "id": "5",
-            "title": "Eletrônica"
+          "name": "ouhboy"
         }
-    ],
-    "musics": 
-    [
+      ]
+    },
+    {
+      "id": "2",
+      "playlistId": "2",
+      "title": "Olho de tigre",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/336631017",
+      "duration": 238,
+      "authors": [
         {
-            "id": "1",
-            "playlistId": "1",
-            "title": "Quadro",
-            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/815828098",
-            "authors": 
-            [
-                {
-                    "name": "Sidoka"
-                },
-                {
-                    "name": "ouhboy"
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "playlistId": "2",
-            "title": "Olho de tigre",
-            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336631017",
-            "authors": 
-            [
-                {
-                    "name": "Djonga"
-                }
-            ]
-        },
-        {
-            "id": "3",
-            "playlistId": "3",
-            "title": "Você não nasceu pra namorar",
-            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/993120556",
-            "authors": 
-            [
-                {
-                    "name": "Mc Zaquin"
-                },
-                {
-                    "name": "Mc Rick"
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "playlistId": "4",
-            "title": "Batom de cereja",
-            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/959678071",
-            "authors": 
-            [
-                {
-                    "name": "Israel & Rodolfo"
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "playlistId": "5",
-            "title": "Call me a spaceman",
-            "soundcloudUrl": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/126827254",
-            "authors": 
-            [
-                {
-                    "name": "Israel & Rodolfo"
-                }
-            ]
+          "name": "Djonga"
         }
-    ]
+      ]
+    },
+    {
+      "id": "3",
+      "playlistId": "3",
+      "title": "Você não nasceu pra namorar",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/993120556",
+      "duration": 140,
+      "authors": [
+        {
+          "name": "Mc Zaquin"
+        },
+        {
+          "name": "Mc Rick"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "playlistId": "4",
+      "title": "Batom de cereja",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/959678071",
+      "duration": 140,
+      "authors": [
+        {
+          "name": "Israel & Rodolfo"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "playlistId": "5",
+      "title": "Call me a spaceman",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/126827254",
+      "duration": 191,
+      "authors": [
+        {
+          "name": "Hardwell"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "playlistId": "1",
+      "title": "Tudu roxo",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/126827254",
+      "duration": 176,
+      "authors": [
+        {
+          "name": "Sidoka"
+        },
+        {
+          "name": "Nagalli"
+        },
+        {
+          "name": "Celo"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "playlistId": "2",
+      "title": "Insônia",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/172132281",
+      "duration": 283,
+      "authors": [
+        {
+          "name": "Hungria Hip Hop"
+        },
+        {
+          "name": "Tribo da Periferia"
+        }
+      ]
+    }
+  ]
 }

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { useContext } from 'react'
 import {
 	MdEqualizer,
 	MdHome,
@@ -7,8 +9,8 @@ import {
 } from 'react-icons/md'
 import LoginPhoto from '../../assets/img/MMPR (2).jpg'
 import StationIcon from '../../assets/img/stationIcon.jpeg'
+import { AudioContext } from '../../contexts/audio'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 const Sidebar = styled.aside`
 	position: fixed;
@@ -156,6 +158,8 @@ const QuickStation = styled(Link)`
 `
 
 export default () => {
+	const { listenPlaylist, quickPlaylists } = useContext(AudioContext)
+
 	return (
 		<Sidebar>
 			<section>
@@ -188,36 +192,23 @@ export default () => {
 			<QuickStationsSection>
 				<span>Quick Stations</span>
 				<QuickStationsList>
-					<li>
-						<QuickStation to='#'>
-							<QuickStationIcon src={StationIcon} />
-							<p>Station 1</p>
-						</QuickStation>
-					</li>
-					<li>
-						<QuickStation to='#'>
-							<QuickStationIcon src={StationIcon} />
-							<p>Station 2</p>
-						</QuickStation>
-					</li>
-					<li>
-						<QuickStation to='#'>
-							<QuickStationIcon src={StationIcon} />
-							<p>Station 3</p>
-						</QuickStation>
-					</li>
-					<li>
-						<QuickStation to='#'>
-							<QuickStationIcon src={StationIcon} />
-							<p>Station 4</p>
-						</QuickStation>
-					</li>
-					<li>
-						<QuickStation to='#'>
-							<QuickStationIcon src={StationIcon} />
-							<p>Station 5</p>
-						</QuickStation>
-					</li>
+					{quickPlaylists.map(playlist => {
+						return (
+							<li>
+								<QuickStation
+									to='#'
+									onClick={() => {
+										listenPlaylist(playlist)
+									}}
+								>
+									<QuickStationIcon
+										src={`${process.env.PUBLIC_URL}${playlist.thumbnail}`}
+									/>
+									<p>{playlist.title}</p>
+								</QuickStation>
+							</li>
+						)
+					})}
 				</QuickStationsList>
 			</QuickStationsSection>
 		</Sidebar>
