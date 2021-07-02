@@ -1,8 +1,7 @@
-import { useContext, useEffect, useRef } from 'react'
-import { AudioContext } from '../contexts/audio'
 import styled from 'styled-components'
 import Main from '../components/Main'
 import Sidebar from '../components/Sidebar'
+import Player from '../components/Player'
 
 const App = styled.div`
 	display: flex;
@@ -10,10 +9,12 @@ const App = styled.div`
 `
 
 export const Home = () => {
+
 	return (
 		<App>
 			<Main />
 			<Sidebar />
+			<Player />
 		</App>
 	)
 }

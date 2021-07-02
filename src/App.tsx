@@ -4,23 +4,26 @@ import {
 	Route,
 	Switch,
 } from 'react-router-dom'
-import Player from './components/Player'
 import { AudioContextProvider } from './contexts/audio'
+import { UserContextProvider } from './contexts/user'
 import { Home } from './pages/Home'
+import { Login } from './pages/Login'
 
 const App = () => {
 	return (
-    <AudioContextProvider>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Redirect to='/Main' />
-          </Route>
-          <Route exact path='/Main' component={Home} />
-        </Switch>
-      </Router>
-			<Player />
-    </AudioContextProvider>
+    <UserContextProvider>
+      <AudioContextProvider>
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Redirect to='/Login' />
+            </Route>
+            <Route exact path='/Login' component={Login} />
+            <Route exact path='/Main' component={Home} />
+          </Switch>
+        </Router>
+      </AudioContextProvider>
+    </UserContextProvider>
 	)
 }
 

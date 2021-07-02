@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import styled from 'styled-components'
+import useUser from '../../hooks/useUser'
+import usePlaylists from '../../hooks/usePlaylists'
 import {
 	MdEqualizer,
 	MdHome,
@@ -6,9 +9,6 @@ import {
 	MdMoreHoriz,
 	MdSearch,
 } from 'react-icons/md'
-import LoginPhoto from '../../assets/img/MMPR (2).jpg'
-import styled from 'styled-components'
-import usePlaylists from '../../hooks/usePlaylists'
 
 const Sidebar = styled.aside`
 	position: fixed;
@@ -22,6 +22,7 @@ const Sidebar = styled.aside`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	gap: 2rem;
 
 	> section {
 		padding: 0.5rem;
@@ -117,7 +118,7 @@ const NavItem = styled(Link)`
 const QuickStationsSection = styled.section`
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 2rem;
 
 	color: var(--light-gray);
 
@@ -146,6 +147,8 @@ const QuickStation = styled(Link)`
 	align-items: center;
 	gap: 1rem;
 
+	max-height: calc(50% - 2rem);
+
 	color: var(--light-gray);
 
 	transition: 200ms;
@@ -156,15 +159,18 @@ const QuickStation = styled(Link)`
 `
 
 export default () => {
+	const { user } = useUser()
 	const { listenPlaylist, quickPlaylists } = usePlaylists()
+
+	console.log(quickPlaylists)
 
 	return (
 		<Sidebar>
 			<section>
 				<UserSection>
 					<UserDataSection>
-						<PerfilIcon src={LoginPhoto} alt='Foto de perfil' />
-						<UserName to='#'>Lucas da Luz</UserName>
+						<PerfilIcon src={user.photoURL} alt='Foto de perfil' />
+						<UserName to='#'>{user.displayName}</UserName>
 					</UserDataSection>
 					<EllipsisIcon />
 				</UserSection>

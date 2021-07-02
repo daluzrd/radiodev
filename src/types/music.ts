@@ -1,12 +1,12 @@
-export type author = {
+export type AuthorType = {
 	name: string
 }
 
-export type music = {
+export type MusicType = {
 	id: number
 	playlistId: number
 	title: string
-	authors: author[]
+	authors: AuthorType[]
 	soundcloudUrl: string
 	duration: number
 }

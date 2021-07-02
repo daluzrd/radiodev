@@ -1,8 +1,11 @@
-import { MdFavorite } from 'react-icons/md'
-import { author } from '../../models/music'
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
+import { AuthorType } from '../../types/music'
 import styled from 'styled-components'
 import useMusics from '../../hooks/useMusics'
 import usePlaylists from '../../hooks/usePlaylists'
+import useUser from '../../hooks/useUser'
+import { getPlaylistWasLiked } from '../../services/jsonServer'
+import { useEffect, useState } from 'react'
 
 const Player = styled.footer`
 	position: fixed;
@@ -15,7 +18,7 @@ const Player = styled.footer`
 	padding: 1rem;
 
 	background: var(--dark-gray);
-	border-top: var(--gray);
+	border-top: solid 1px var(--gray);
 	color: var(--light-gray);
 
 	height: 7.5rem;
@@ -65,9 +68,20 @@ const LikeSection = styled.section`
 	height: 2rem;
 
 	display: flex;
+
+	:hover {
+		cursor: pointer;
+	}
 `
 
 const LikeIcon = styled(MdFavorite)`
+	width: 100%;
+	height: 100%;
+
+	fill: var(--purple);
+`
+
+const LikeIconBorder = styled(MdFavoriteBorder)`
 	width: 100%;
 	height: 100%;
 `
@@ -77,20 +91,32 @@ const Iframe = styled.iframe`
 `
 
 export default () => {
+	const { user } = useUser();
 	const { actualMusic } = useMusics()
 	const { actualPlaylist } = usePlaylists()
+	const [playlistWasLiked, setPlaylistWasLiked] = useState(false)
 
-	const returnAuthor = (artist: author) => {
+	console.log(user)
+
+	const returnAuthor = (author: AuthorType) => {
 		if (actualMusic.authors) {
-			const indexOfAuthor = actualMusic.authors.indexOf(artist)
+			const indexOfAuthor = actualMusic.authors.indexOf(author)
 
 			if (indexOfAuthor < actualMusic.authors.length - 1) {
-				return `${artist.name}, `
+				return `${author.name}, `
 			} else if (indexOfAuthor === actualMusic.authors.length - 1) {
-				return artist.name
+				return author.name
 			}
 		}
 	}
+
+	const getIfLiked = async () => {
+		setPlaylistWasLiked(await getPlaylistWasLiked(actualPlaylist.id, user.uid))
+	}
+
+	useEffect(() => {
+		getIfLiked()
+	}, [actualPlaylist, user])
 
 	return (
 		<Player>
@@ -113,7 +139,7 @@ export default () => {
 				<div>{actualMusic.title ? actualMusic.title : ''}</div>
 			</ProgressBar>
 			<LikeSection>
-				<LikeIcon />
+				{ playlistWasLiked ? <LikeIcon /> : <LikeIconBorder />}
 			</LikeSection>
 			<Iframe
 				width='100%'
@@ -126,3 +152,4 @@ export default () => {
 		</Player>
 	)
 }
+

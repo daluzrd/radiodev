@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react"
 import { AudioContext } from "../contexts/audio"
-import { music } from "../models/music"
+import { MusicType } from "../types/music"
 
 
 const useMusics = () => {
 	const { actualMusic, musics, setActualMusic, setMusics } = useContext(AudioContext)
 	
-    const updateMusics = (newMusics: music[]) => {
+    const updateMusics = (newMusics: MusicType[]) => {
 		debugger
 		setMusics(newMusics)
 	}

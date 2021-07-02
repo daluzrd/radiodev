@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { MdPauseCircleFilled, MdPlayCircleFilled } from 'react-icons/md'
 import usePlaylists from '../../hooks/usePlaylists'
+import useUser from '../../hooks/useUser'
 
 const Main = styled.main`
 	width: calc(100% - 18rem);
@@ -84,7 +86,7 @@ const PauseButton = styled(MdPauseCircleFilled)`
 
 export default () => {
 	const { playlists, listenPlaylist } = usePlaylists();
-
+	
 	return (
 		<Main>
 			<StationList>

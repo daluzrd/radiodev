@@ -1,18 +1,18 @@
 import { createContext, Dispatch, ReactNode, useEffect, useState } from 'react'
-import { music } from '../models/music'
-import { playlist } from '../models/playlist'
+import { MusicType } from '../types/music'
+import { PlaylistType } from '../types/playlist'
 
 type AudioContextType = {
-	actualMusic: music
-	actualPlaylist: playlist
-	musics: music[]
-	playlists: playlist[]
-	quickPlaylists: playlist[]
-	setActualMusic: Dispatch<music>
-	setActualPlaylist: Dispatch<playlist>
-	setMusics: Dispatch<music[]>
-	setPlaylists: Dispatch<playlist[]>
-	setQuickPlaylists: Dispatch<playlist[]>
+	actualMusic: MusicType
+	actualPlaylist: PlaylistType
+	musics: MusicType[]
+	playlists: PlaylistType[]
+	quickPlaylists: PlaylistType[]
+	setActualMusic: Dispatch<MusicType>
+	setActualPlaylist: Dispatch<PlaylistType>
+	setMusics: Dispatch<MusicType[]>
+	setPlaylists: Dispatch<PlaylistType[]>
+	setQuickPlaylists: Dispatch<PlaylistType[]>
 }
 
 type AudioContextProviderType = {
@@ -24,11 +24,11 @@ export const AudioContext = createContext({} as AudioContextType)
 export const AudioContextProvider = ({
 	children,
 }: AudioContextProviderType) => {
-	const [playlists, setPlaylists] = useState<playlist[]>([])
-	const [quickPlaylists, setQuickPlaylists] = useState([] as playlist[])
-	const [musics, setMusics] = useState<music[]>([])
-	const [actualMusic, setActualMusic] = useState({} as music)
-	const [actualPlaylist, setActualPlaylist] = useState({} as playlist)
+	const [playlists, setPlaylists] = useState<PlaylistType[]>([])
+	const [quickPlaylists, setQuickPlaylists] = useState([] as PlaylistType[])
+	const [musics, setMusics] = useState<MusicType[]>([])
+	const [actualMusic, setActualMusic] = useState({} as MusicType)
+	const [actualPlaylist, setActualPlaylist] = useState({} as PlaylistType)
 
 	return (
 		<AudioContext.Provider
