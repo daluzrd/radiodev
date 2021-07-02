@@ -1,8 +1,8 @@
-import { useContext } from 'react'
 import { MdFavorite } from 'react-icons/md'
-import { AudioContext } from '../../contexts/audio'
 import { author } from '../../models/music'
 import styled from 'styled-components'
+import useMusics from '../../hooks/useMusics'
+import usePlaylists from '../../hooks/usePlaylists'
 
 const Player = styled.footer`
 	position: fixed;
@@ -77,7 +77,8 @@ const Iframe = styled.iframe`
 `
 
 export default () => {
-	const { actualMusic, actualPlaylist } = useContext(AudioContext)
+	const { actualMusic } = useMusics()
+	const { actualPlaylist } = usePlaylists()
 
 	const returnAuthor = (artist: author) => {
 		if (actualMusic.authors) {

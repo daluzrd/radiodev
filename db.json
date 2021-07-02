@@ -4,31 +4,31 @@
       "id": "1",
       "title": "Trap",
       "thumbnail": "/stationsImg/trap.png",
-      "playedTimes": 29
+      "playedTimes": 63
     },
     {
       "id": "2",
       "title": "Rap",
       "thumbnail": "/stationsImg/rap.png",
-      "playedTimes": 16
+      "playedTimes": 28
     },
     {
       "id": "3",
       "title": "Funk",
       "thumbnail": "/stationsImg/funk.png",
-      "playedTimes": 27
+      "playedTimes": 32
     },
     {
       "id": "4",
       "title": "Sertanejo",
       "thumbnail": "/stationsImg/sertanejo.png",
-      "playedTimes": 2
+      "playedTimes": 3
     },
     {
       "id": "5",
       "title": "Eletrônica",
       "thumbnail": "/stationsImg/eletronica.png",
-      "playedTimes": 8
+      "playedTimes": 10
     }
   ],
   "musics": [
@@ -102,7 +102,7 @@
       "id": "6",
       "playlistId": "1",
       "title": "Tudu roxo",
-      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/126827254",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/892026988",
       "duration": 176,
       "authors": [
         {

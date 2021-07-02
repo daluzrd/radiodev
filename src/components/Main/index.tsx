@@ -1,11 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { AudioContext } from '../../contexts/audio'
 import { MdPauseCircleFilled, MdPlayCircleFilled } from 'react-icons/md'
-import StationIcon from '../../assets/img/stationIcon.jpeg'
-import { playlist } from '../../models/playlist'
-import { getPlaylists } from '../../services/jsonServer'
+import usePlaylists from '../../hooks/usePlaylists'
 
 const Main = styled.main`
 	width: calc(100% - 18rem);
@@ -26,10 +22,14 @@ const StationList = styled.ul`
 
 const StationItem = styled.li`
 	display: flex;
-	align-items: flex-start;
-	gap: 1rem;
+	justify-content: space-between;
 
-	background: var(--dark-gray);
+	background: var(--dark-gray);	
+`
+
+const StationData = styled.div`
+	display: flex;
+	gap: 1rem;
 
 	> img {
 		width: 10rem;
@@ -53,6 +53,7 @@ const PlayButton = styled(MdPlayCircleFilled)`
 
 	height: 3rem;
 	width: 3rem;
+	margin-right: 2rem;
 
 	cursor: pointer;
 	transition: 200ms;
@@ -69,6 +70,7 @@ const PauseButton = styled(MdPauseCircleFilled)`
 
 	height: 3rem;
 	width: 3rem;
+	margin-right: 2rem;
 
 	cursor: pointer;
 	transition: 200ms;
@@ -81,7 +83,7 @@ const PauseButton = styled(MdPauseCircleFilled)`
 `
 
 export default () => {
-	const { isPlaying, playlists, listenPlaylist } = useContext(AudioContext)
+	const { playlists, listenPlaylist } = usePlaylists();
 
 	return (
 		<Main>
@@ -90,21 +92,15 @@ export default () => {
 					playlists.map(playlist => {
 						return (
 							<StationItem key={`${playlist.title}${playlist.id}`}>
-								<img src={`${process.env.PUBLIC_URL}${playlist.thumbnail}`} />
-								<Link to='#'>{playlist.title}</Link>
-								{isPlaying ? (
-									<PauseButton
+								<StationData>
+									<img src={`${process.env.PUBLIC_URL}${playlist.thumbnail}`} />
+									<Link to='#'>{playlist.title}</Link>
+								</StationData>
+								<PlayButton
 										onClick={() => {
 											listenPlaylist(playlist)
 										}}
 									/>
-								) : (
-									<PlayButton
-										onClick={() => {
-											listenPlaylist(playlist)
-										}}
-									/>
-								)}
 							</StationItem>
 						)
 					})

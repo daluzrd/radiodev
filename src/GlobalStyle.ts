@@ -20,6 +20,18 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--purple);
+    }
+
     body { 
         font-family: 'Roboto', sans-serif;
         background: linear-gradient(180deg, rgba(154, 48, 250, 0.3) 0%, rgba(0, 0, 0, 0) 100%), #333333;

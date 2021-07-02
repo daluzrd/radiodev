@@ -1,22 +1,18 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, Dispatch, ReactNode, useEffect, useState } from 'react'
 import { music } from '../models/music'
 import { playlist } from '../models/playlist'
-import {
-	getMusicsByPlaylistId,
-	getPlaylists,
-	getTop4Playlists,
-	updatePlaylistPlayedTimes,
-} from '../services/jsonServer'
-import { shuffleMusics } from '../utils/shuffleMusics'
 
 type AudioContextType = {
-	isPlaying: boolean
 	actualMusic: music
 	actualPlaylist: playlist
+	musics: music[]
 	playlists: playlist[]
 	quickPlaylists: playlist[]
-	play: () => void
-	listenPlaylist: (playlist: playlist) => void
+	setActualMusic: Dispatch<music>
+	setActualPlaylist: Dispatch<playlist>
+	setMusics: Dispatch<music[]>
+	setPlaylists: Dispatch<playlist[]>
+	setQuickPlaylists: Dispatch<playlist[]>
 }
 
 type AudioContextProviderType = {
@@ -30,59 +26,23 @@ export const AudioContextProvider = ({
 }: AudioContextProviderType) => {
 	const [playlists, setPlaylists] = useState<playlist[]>([])
 	const [quickPlaylists, setQuickPlaylists] = useState([] as playlist[])
-	const [isPlaying, setIsPlaying] = useState(false)
 	const [musics, setMusics] = useState<music[]>([])
 	const [actualMusic, setActualMusic] = useState({} as music)
 	const [actualPlaylist, setActualPlaylist] = useState({} as playlist)
 
-	const play = () => setIsPlaying(!isPlaying)
-
-	const listenPlaylist = async (playlist: playlist) => {
-		setActualPlaylist(playlist)
-		setMusics(await getMusicsByPlaylistId(playlist.id))
-	}
-
-	const nextTrack = (index: number) => {
-		setActualMusic(musics[index])
-	}
-
-	useEffect(() => {
-		if (musics.length > 0) nextTrack(0)
-	}, [musics])
-
-	useEffect(() => {
-		const actualMusicIndex = musics.indexOf(actualMusic)
-		if (actualMusicIndex !== musics.length - 1) {
-			setTimeout(
-				() => nextTrack(actualMusicIndex + 1),
-				actualMusic.duration * 1000
-			)
-		}
-	}, [actualMusic])
-
-	useEffect(() => {
-		const effect = async () => {
-			setPlaylists(await getPlaylists())
-			setQuickPlaylists(await getTop4Playlists())
-		}
-		effect()
-		console.log(playlists)
-	}, [])
-
-	useEffect(() => {
-		updatePlaylistPlayedTimes(actualPlaylist)
-	}, [actualPlaylist])
-
 	return (
 		<AudioContext.Provider
 			value={{
-				isPlaying,
 				actualMusic,
 				actualPlaylist,
 				playlists,
 				quickPlaylists,
-				play,
-				listenPlaylist,
+				musics,
+				setMusics,
+				setActualMusic,
+				setActualPlaylist,
+				setPlaylists,
+				setQuickPlaylists
 			}}
 		>
 			{children}

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
 import {
 	MdEqualizer,
 	MdHome,
@@ -8,9 +7,8 @@ import {
 	MdSearch,
 } from 'react-icons/md'
 import LoginPhoto from '../../assets/img/MMPR (2).jpg'
-import StationIcon from '../../assets/img/stationIcon.jpeg'
-import { AudioContext } from '../../contexts/audio'
 import styled from 'styled-components'
+import usePlaylists from '../../hooks/usePlaylists'
 
 const Sidebar = styled.aside`
 	position: fixed;
@@ -158,7 +156,7 @@ const QuickStation = styled(Link)`
 `
 
 export default () => {
-	const { listenPlaylist, quickPlaylists } = useContext(AudioContext)
+	const { listenPlaylist, quickPlaylists } = usePlaylists()
 
 	return (
 		<Sidebar>
@@ -194,7 +192,7 @@ export default () => {
 				<QuickStationsList>
 					{quickPlaylists.map(playlist => {
 						return (
-							<li>
+							<li key={`quickstation${playlist.title}`}>
 								<QuickStation
 									to='#'
 									onClick={() => {
