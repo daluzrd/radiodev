@@ -1,4 +1,4 @@
-import { FormEvent, useContext } from "react"
+import { FormEvent } from "react"
 import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 import useUser from "../hooks/useUser"
@@ -52,7 +52,7 @@ export const Login = () => {
     return (
         <Form onSubmit={login}>
             <Button type="submit">
-                <img src={googleLogo} />
+                <img src={googleLogo} alt="Logo do Google" />
                 <span>Sign in with Google</span>
             </Button>
         </Form>

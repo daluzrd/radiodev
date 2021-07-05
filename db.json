@@ -10,7 +10,7 @@
       "id": 1,
       "title": "Trap",
       "thumbnail": "/stationsImg/trap.png",
-      "playedTimes": 214
+      "playedTimes": 220
     },
     {
       "id": 2,
@@ -34,7 +34,7 @@
       "id": 5,
       "title": "Eletrônica",
       "thumbnail": "/stationsImg/eletronica.png",
-      "playedTimes": 19
+      "playedTimes": 38
     }
   ],
   "musics": [

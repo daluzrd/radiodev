@@ -1,9 +1,7 @@
-import { useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { MdPauseCircleFilled, MdPlayCircleFilled } from 'react-icons/md'
+import { MdPlayCircleFilled } from 'react-icons/md'
 import usePlaylists from '../../hooks/usePlaylists'
-import useUser from '../../hooks/useUser'
 
 const Main = styled.main`
 	width: calc(100% - 18rem);
@@ -67,23 +65,7 @@ const PlayButton = styled(MdPlayCircleFilled)`
 	align-self: center;
 `
 
-const PauseButton = styled(MdPauseCircleFilled)`
-	color: var(--purple);
-
-	height: 3rem;
-	width: 3rem;
-	margin-right: 2rem;
-
-	cursor: pointer;
-	transition: 200ms;
-
-	:hover {
-		transform: scale(1.2);
-	}
-
-	align-self: center;
-`
-
+// eslint-disable-next-line
 export default () => {
 	const { playlists, listenPlaylist } = usePlaylists();
 	
@@ -95,7 +77,7 @@ export default () => {
 						return (
 							<StationItem key={`${playlist.title}${playlist.id}`}>
 								<StationData>
-									<img src={`${process.env.PUBLIC_URL}${playlist.thumbnail}`} />
+									<img src={`${process.env.PUBLIC_URL}${playlist.thumbnail}`} alt="Thumbnail da playlist" />
 									<Link to='#'>{playlist.title}</Link>
 								</StationData>
 								<PlayButton

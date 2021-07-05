@@ -18,7 +18,7 @@ const useMusics = () => {
 
 	useEffect(() => {
 		if (musics.length > 0) nextTrack(0)
-	}, [musics])
+	}, [musics]) // eslint-disable-line
 
 	useEffect(() => {
 		const actualMusicIndex = musics.indexOf(actualMusic)
@@ -28,7 +28,7 @@ const useMusics = () => {
 				actualMusic.duration * 1000
 			)
 		}
-	}, [actualMusic])
+	}, [actualMusic]) // eslint-disable-line
 
     return {actualMusic, updateMusics}
 }

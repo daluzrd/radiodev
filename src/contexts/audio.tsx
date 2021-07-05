@@ -1,4 +1,4 @@
-import { createContext, Dispatch, ReactNode, useEffect, useState } from 'react'
+import { createContext, Dispatch, ReactNode, useState } from 'react'
 import { MusicType } from '../types/music'
 import { PlaylistType } from '../types/playlist'
 

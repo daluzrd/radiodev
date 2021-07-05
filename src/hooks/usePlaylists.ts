@@ -27,11 +27,11 @@ const usePlaylists = () => {
 
 	useEffect(() => {
 		updatePlaylists()
-	}, [])
+	}, []) // eslint-disable-line
 
 	useEffect(() => {
 		updateQuickPlaylists()
-	}, [user])
+	}, [user]) // eslint-disable-line
 
 	useEffect(() => {
 		updatePlaylistPlayedTimes(actualPlaylist)

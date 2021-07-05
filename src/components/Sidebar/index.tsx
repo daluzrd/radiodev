@@ -1,4 +1,4 @@
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import useUser from '../../hooks/useUser'
 import usePlaylists from '../../hooks/usePlaylists'
@@ -158,11 +158,10 @@ const QuickStation = styled(Link)`
 	}
 `
 
+// eslint-disable-next-line
 export default () => {
 	const { user } = useUser()
 	const { listenPlaylist, quickPlaylists } = usePlaylists()
-
-	console.log(quickPlaylists)
 
 	return (
 		<Sidebar>

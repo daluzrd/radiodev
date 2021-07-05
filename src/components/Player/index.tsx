@@ -90,6 +90,7 @@ const Iframe = styled.iframe`
 	display: none;
 `
 
+// eslint-disable-next-line
 export default () => {
 	const { user } = useUser();
 	const { actualMusic } = useMusics()
@@ -116,13 +117,13 @@ export default () => {
 
 	useEffect(() => {
 		getIfLiked()
-	}, [actualPlaylist, user])
+	}, [actualPlaylist, user]) // eslint-disable-line
 
 	return (
 		<Player>
 			<StationSection>
 				{actualPlaylist.thumbnail ? (
-					<img src={`${process.env.PUBLIC_URL}${actualPlaylist.thumbnail}`} />
+					<img src={`${process.env.PUBLIC_URL}${actualPlaylist.thumbnail}`} alt="Thumbnail da playlist" />
 				) : (
 					''
 				)}

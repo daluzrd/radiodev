@@ -37,7 +37,7 @@ const useUser = () => {
         })
 
         return () => { unsubscribe() }
-    }, [])
+    }, []) // eslint-disable-line
 
     return { user, signIn }
 }
