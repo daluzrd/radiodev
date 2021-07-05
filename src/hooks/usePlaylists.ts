@@ -2,9 +2,10 @@ import { useContext, useEffect } from 'react'
 import { AudioContext } from '../contexts/audio'
 import useMusics from './useMusics'
 import useUser from './useUser'
-import { getMusicsByPlaylistId, getPlaylists, getTop4Playlists, updatePlaylistPlayedTimes } from '../services/jsonServer'
+import { getMusicsByPlaylistId, getPlaylists, getTop4Playlists, updatePlaylistPlayedTimes } from '../services/firebaseServer'
 import { shuffleMusics } from '../utils/shuffleMusics'
 import { PlaylistType } from '../types/playlist'
+import { MusicType } from '../types/music'
 
 
 const usePlaylists = () => {
@@ -14,7 +15,8 @@ const usePlaylists = () => {
 
 	const listenPlaylist = async (playlist: PlaylistType) => {
 		setActualPlaylist(playlist)
-		updateMusics(shuffleMusics(await getMusicsByPlaylistId(playlist.id)))
+		const musics: MusicType[] = await getMusicsByPlaylistId(playlist.id)
+		updateMusics(shuffleMusics(musics.filter(music => music.playlistId === playlist.id)))
 	}
 
     const updatePlaylists = async () => {

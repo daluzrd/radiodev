@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://radiodev-61f07-default-rtdb.firebaseio.com/"
 })
 
 export default api;
