@@ -1,0 +1,153 @@
+{
+  "likedPlaylists": [
+    {
+      "uid": "4vDPJscfwDRIbRsNUcrOyEXUmGh2",
+      "playlistId": 1
+    }
+  ],
+  "playlists": [
+    {
+      "id": 1,
+      "title": "Trap",
+      "thumbnail": "/stationsImg/trap.png",
+      "playedTimes": 220
+    },
+    {
+      "id": 2,
+      "title": "Rap",
+      "thumbnail": "/stationsImg/rap.png",
+      "playedTimes": 34
+    },
+    {
+      "id": 3,
+      "title": "Funk",
+      "thumbnail": "/stationsImg/funk.png",
+      "playedTimes": 105
+    },
+    {
+      "id": 4,
+      "title": "Sertanejo",
+      "thumbnail": "/stationsImg/sertanejo.png",
+      "playedTimes": 3
+    },
+    {
+      "id": 5,
+      "title": "Eletrônica",
+      "thumbnail": "/stationsImg/eletronica.png",
+      "playedTimes": 38
+    }
+  ],
+  "musics": [
+    {
+      "id": 1,
+      "playlistId": 1,
+      "title": "Quadro",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/815828098",
+      "duration": 170,
+      "authors": [
+        {
+          "name": "Sidoka"
+        },
+        {
+          "name": "ouhboy"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "playlistId": 2,
+      "title": "Olho de tigre",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/336631017",
+      "duration": 238,
+      "authors": [
+        {
+          "name": "Djonga"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "playlistId": 3,
+      "title": "Você não nasceu pra namorar",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/993120556",
+      "duration": 140,
+      "authors": [
+        {
+          "name": "Mc Zaquin"
+        },
+        {
+          "name": "Mc Rick"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "playlistId": 4,
+      "title": "Batom de cereja",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/959678071",
+      "duration": 140,
+      "authors": [
+        {
+          "name": "Israel & Rodolfo"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "playlistId": 5,
+      "title": "Call me a spaceman",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/126827254",
+      "duration": 191,
+      "authors": [
+        {
+          "name": "Hardwell"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "playlistId": 1,
+      "title": "Tudu roxo",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/892026988",
+      "duration": 176,
+      "authors": [
+        {
+          "name": "Sidoka"
+        },
+        {
+          "name": "Nagalli"
+        },
+        {
+          "name": "Celo"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "playlistId": 2,
+      "title": "Insônia",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/172132281",
+      "duration": 283,
+      "authors": [
+        {
+          "name": "Hungria Hip Hop"
+        },
+        {
+          "name": "Tribo da Periferia"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "playlistId": 1,
+      "title": "Máquina do tempo",
+      "soundcloudUrl": "https%3A//api.soundcloud.com/tracks/891659635",
+      "duration": 231,
+      "authors": [
+        {
+          "name": "Matuê"
+        }
+      ]
+    }
+  ]
+}

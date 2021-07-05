@@ -1,119 +1,97 @@
-import { MdPlayCircleFilled } from "react-icons/md"
-import styled from "styled-components"
-import StationIcon from '../../assets/img/stationIcon.jpeg'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { MdPlayCircleFilled } from 'react-icons/md'
+import usePlaylists from '../../hooks/usePlaylists'
 
 const Main = styled.main`
-width: calc(100% - 18rem);
-height: calc(100vh - 7.5rem);
-overflow-y: auto;
-padding: 4rem;
+	width: calc(100% - 18rem);
+	height: calc(100vh - 7.5rem);
+	overflow-y: auto;
+	padding: 4rem;
 `
 
 const StationList = styled.ul`
-display: grid;
-grid-template-columns: calc(50% - 1rem) calc(50% - 1rem);
+	display: grid;
+	grid-template-columns: calc(50% - 1rem) calc(50% - 1rem);
 
-width: 100%;
-height: fit-content;
-gap: 2rem;
-overflow-wrap: wrap;
+	width: 100%;
+	height: fit-content;
+	gap: 2rem;
+	overflow-wrap: wrap;
 `
 
 const StationItem = styled.li`
-display: flex;
-align-items: flex-start;
-gap: 1rem;
+	display: flex;
+	justify-content: space-between;
 
-background: var(--dark-gray);
+	background: var(--dark-gray);	
+`
 
-> img {
-  width: 10rem;
-  height: 100%;
-}
+const StationData = styled.div`
+	display: flex;
+	gap: 1rem;
 
-> a {
-  margin-top: 1rem;
+	> img {
+		width: 10rem;
+		height: 100%;
+	}
 
-  font-size: 1.5rem;
-  color: var(--extra-light-gray);
+	> a {
+		margin-top: 1rem;
 
-  :hover {
-    text-decoration: underline;
-  }
-}
+		font-size: 1.5rem;
+		color: var(--extra-light-gray);
+
+		:hover {
+			text-decoration: underline;
+		}
+	}
 `
 
 const PlayButton = styled(MdPlayCircleFilled)`
-color: var(--purple);
+	color: var(--purple);
 
-height: 3rem;
-width: 3rem;
+	height: 3rem;
+	width: 3rem;
+	margin-right: 2rem;
 
-cursor: pointer;
-transition: 200ms;
+	cursor: pointer;
+	transition: 200ms;
 
-:hover {
-  transform: scale(1.2);
-}
+	:hover {
+		transform: scale(1.2);
+	}
 
-align-self: center;
+	align-self: center;
 `
 
+// eslint-disable-next-line
 export default () => {
-  return (
-    <Main>
-      <StationList>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 1</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 2</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 3</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 4</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 5</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 6</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 7</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 8</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 9</a>
-          <PlayButton />
-        </StationItem>
-        <StationItem>
-          <img src={StationIcon} />
-          <a href='#'>Station 10</a>
-          <PlayButton />
-        </StationItem>
-      </StationList>        
-    </Main>
-  )
+	const { playlists, listenPlaylist } = usePlaylists();
+	
+	return (
+		<Main>
+			<StationList>
+				{playlists.length ? (
+					playlists.map(playlist => {
+						return (
+							<StationItem key={`${playlist.title}${playlist.id}`}>
+								<StationData>
+									<img src={`${process.env.PUBLIC_URL}${playlist.thumbnail}`} alt="Thumbnail da playlist" />
+									<Link to='#'>{playlist.title}</Link>
+								</StationData>
+								<PlayButton
+										onClick={() => {
+											listenPlaylist(playlist)
+										}}
+									/>
+							</StationItem>
+						)
+					})
+				) : (
+					<></>
+				)}
+			</StationList>
+		</Main>
+	)
 }
